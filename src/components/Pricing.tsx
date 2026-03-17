@@ -42,7 +42,7 @@ const plans: Plan[] = [
   {
     name: 'Premium',
     subtitle: 'Para guilds organizadas',
-    price: 'R$ 27,00',
+    price: 'R$ 29,90',
     period: '/mês',
     cta: 'ASSINAR PREMIUM',
     ctaStyle: 'primary',
