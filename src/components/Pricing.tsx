@@ -70,7 +70,7 @@ const plans: Plan[] = [
       { text: 'Boss Timer completo', included: true },
       { text: 'Alertas sonoros com narração', included: true },
       { text: 'Até 250 membros', included: true },
-      { text: 'Até 3 tags por membro', included: true },
+      { text: 'Até 3 tags', included: true },
       { text: 'Até 3 alianças entre guilds', included: true },
       { text: 'Torre da Benção + Party', included: true },
       { text: 'Armazém p/ bid de itens', included: false, soon: true },
