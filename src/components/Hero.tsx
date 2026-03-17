@@ -1,5 +1,6 @@
 import { Shield, ChevronRight, Volume2, Timer, Trophy, Gavel } from 'lucide-react';
 
+
 export default function Hero() {
   return (
     <section className="hero-gradient hero-grid relative min-h-screen flex items-center overflow-hidden" style={{ paddingTop: '80px' }}>
@@ -69,7 +70,7 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right — Dashboard Mockup */}
+          {/* Right — Dashboard Screenshot */}
           <div className="mockup-frame float">
             <div className="mockup-header">
               <div className="mockup-dot" style={{ background: '#ff5f57' }} />
@@ -77,52 +78,11 @@ export default function Hero() {
               <div className="mockup-dot" style={{ background: '#28c840' }} />
               <span className="text-gray-500 text-[11px] ml-3">MY GUILD HUB — Dashboard</span>
             </div>
-            <div className="p-4">
-              {/* Mini dashboard mockup */}
-              <div className="grid grid-cols-3 gap-2 mb-3">
-                {[
-                  { label: 'MEMBROS', value: '86', color: 'text-emerald-400' },
-                  { label: 'BOSSES HOJE', value: '23', color: 'text-amber-400' },
-                  { label: 'DKP TOTAL', value: '14.2K', color: 'text-sky-400' },
-                ].map((s) => (
-                  <div key={s.label} className="bg-white/5 border border-white/5 rounded-lg p-3 text-center">
-                    <div className={`font-bold text-lg ${s.color}`} style={{ fontFamily: 'var(--font-display)' }}>{s.value}</div>
-                    <div className="text-gray-500 text-[9px] uppercase tracking-wider">{s.label}</div>
-                  </div>
-                ))}
-              </div>
-
-              {/* Mini chart */}
-              <div className="bg-white/3 border border-white/5 rounded-lg p-3 mb-3">
-                <div className="text-white text-[10px] font-bold mb-2" style={{ fontFamily: 'var(--font-display)' }}>ATIVIDADE SEMANAL</div>
-                <div className="flex items-end gap-1 h-12">
-                  {[40, 65, 45, 80, 55, 90, 70].map((h, i) => (
-                    <div key={i} className="flex-1 bg-emerald-500/40 rounded-t" style={{ height: `${h}%` }} />
-                  ))}
-                </div>
-                <div className="flex justify-between text-[8px] text-gray-600 mt-1">
-                  <span>Seg</span><span>Ter</span><span>Qua</span><span>Qui</span><span>Sex</span><span>Sáb</span><span>Dom</span>
-                </div>
-              </div>
-
-              {/* Mini rankings */}
-              <div className="bg-white/3 border border-white/5 rounded-lg p-3">
-                <div className="text-white text-[10px] font-bold mb-2" style={{ fontFamily: 'var(--font-display)' }}>TOP RANKINGS</div>
-                {[
-                  { rank: 1, nick: 'ValkyrieStorm', power: '312K', color: 'text-amber-400' },
-                  { rank: 2, nick: 'FrostArcher', power: '285K', color: 'text-gray-300' },
-                  { rank: 3, nick: 'HolyPriest', power: '248K', color: 'text-orange-400' },
-                ].map((r) => (
-                  <div key={r.nick} className="flex items-center justify-between py-1.5 text-[11px]">
-                    <div className="flex items-center gap-2">
-                      <span className={`font-bold ${r.color}`}>#{r.rank}</span>
-                      <span className="text-white font-semibold" style={{ fontFamily: 'var(--font-display)' }}>{r.nick}</span>
-                    </div>
-                    <span className="text-emerald-400 font-bold" style={{ fontFamily: 'var(--font-display)' }}>{r.power}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
+            <img
+              src="/dashboard.png"
+              alt="Dashboard do MY GUILD HUB"
+              className="w-full block"
+            />
           </div>
         </div>
       </div>
