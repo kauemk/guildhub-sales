@@ -98,15 +98,15 @@ export default function Pricing() {
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-start">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch">
           {plans.map((plan) => (
             <div
               key={plan.name}
               className={`glass-card relative flex flex-col ${
                 plan.popular && plan.ctaStyle === 'elite'
-                  ? 'p-8 border-violet-500/40 md:-mt-4 md:mb-4'
+                  ? 'p-8 border-violet-500/50 ring-1 ring-violet-500/30 shadow-xl shadow-violet-500/10'
                   : plan.popular
-                  ? 'pricing-popular p-8 md:-mt-4 md:mb-4'
+                  ? 'pricing-popular p-8'
                   : 'p-8'
               }`}
             >
