@@ -44,7 +44,6 @@ const plans: Plan[] = [
     subtitle: 'Para guilds organizadas',
     price: 'R$ 27,00',
     period: '/mês',
-    popular: true,
     cta: 'ASSINAR PREMIUM',
     ctaStyle: 'primary',
     features: [
@@ -63,7 +62,7 @@ const plans: Plan[] = [
     subtitle: 'Para guilds de alto nível',
     price: 'R$ 47,50',
     period: '/mês',
-    highlight: 'ELITE',
+    popular: true,
     cta: 'ASSINAR ELITE PRO',
     ctaStyle: 'elite',
     features: [
@@ -104,27 +103,23 @@ export default function Pricing() {
             <div
               key={plan.name}
               className={`glass-card relative flex flex-col ${
-                plan.popular
+                plan.popular && plan.ctaStyle === 'elite'
+                  ? 'p-8 border-violet-500/40 md:-mt-4 md:mb-4'
+                  : plan.popular
                   ? 'pricing-popular p-8 md:-mt-4 md:mb-4'
-                  : plan.ctaStyle === 'elite'
-                  ? 'p-8 border-violet-500/30'
                   : 'p-8'
               }`}
             >
               {/* Badge */}
               {plan.popular && (
                 <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-10">
-                  <div className="flex items-center gap-1.5 px-4 py-1 rounded-full bg-emerald-500 text-white text-xs font-bold tracking-wide shadow-lg shadow-emerald-500/30" style={{ fontFamily: 'var(--font-display)' }}>
+                  <div className={`flex items-center gap-1.5 px-4 py-1 rounded-full text-white text-xs font-bold tracking-wide shadow-lg ${
+                    plan.ctaStyle === 'elite'
+                      ? 'bg-gradient-to-r from-violet-600 to-violet-500 shadow-violet-500/30'
+                      : 'bg-emerald-500 shadow-emerald-500/30'
+                  }`} style={{ fontFamily: 'var(--font-display)' }}>
                     <Sparkles size={11} />
                     MAIS POPULAR
-                  </div>
-                </div>
-              )}
-              {plan.highlight && (
-                <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 z-10">
-                  <div className="flex items-center gap-1.5 px-4 py-1 rounded-full bg-gradient-to-r from-violet-600 to-violet-500 text-white text-xs font-bold tracking-wide shadow-lg shadow-violet-500/30" style={{ fontFamily: 'var(--font-display)' }}>
-                    <Sparkles size={11} />
-                    {plan.highlight}
                   </div>
                 </div>
               )}
