@@ -1,14 +1,16 @@
+import { lazy, Suspense } from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import SocialProof from './components/SocialProof';
 import PainPoints from './components/PainPoints';
 import HowItWorks from './components/HowItWorks';
-import Features from './components/Features';
 import Bonus from './components/Bonus';
 import Guarantee from './components/Guarantee';
 import Pricing from './components/Pricing';
 import FAQ from './components/FAQ';
 import Footer from './components/Footer';
+
+const Features = lazy(() => import('./components/Features'));
 
 export default function App() {
   return (
@@ -18,7 +20,9 @@ export default function App() {
       <SocialProof />
       <PainPoints />
       <HowItWorks />
-      <Features />
+      <Suspense fallback={<div className="h-24" />}>
+        <Features />
+      </Suspense>
       <Bonus />
       <Guarantee />
       <Pricing />

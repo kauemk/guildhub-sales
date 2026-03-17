@@ -56,27 +56,69 @@ function AudioDemo() {
     }
   };
 
+  const isPlaying = playing !== null;
+
   return (
-    <div className="mt-5 p-4 rounded-xl border border-emerald-500/15 bg-emerald-500/5">
-      <div className="flex items-center gap-2 mb-3">
-        <Volume2 size={13} className="text-emerald-400" />
-        <span className="text-emerald-400 text-[11px] font-bold tracking-widest" style={{ fontFamily: 'var(--font-display)' }}>
-          DEMO DE NARRAÇÃO (Elite Pro)
-        </span>
-      </div>
-      <div className="flex flex-wrap gap-2">
-        {voiceSamples.map((s, i) => (
-          <button
-            key={i}
-            onClick={() => toggle(i)}
-            className={`flex items-center gap-2 px-3 py-2 rounded-lg border text-[12px] font-semibold transition-all ${s.bg} ${s.color} hover:brightness-110`}
-          >
-            {playing === i
-              ? <><Square size={11} fill="currentColor" /> Parar</>
-              : <><Play size={11} fill="currentColor" /> {s.label}</>
-            }
-          </button>
-        ))}
+    <div className="mt-6 p-5 rounded-xl border border-emerald-500/15 bg-emerald-500/5">
+      <div className="flex flex-col sm:flex-row items-center gap-5">
+        {/* Speaker com ondas */}
+        <div className="flex flex-col items-center shrink-0">
+          <div className="relative w-24 h-24 flex items-center justify-center mb-3">
+            <div className="absolute inset-0 rounded-full border-2 border-emerald-500/20 animate-ping" style={{ animationDuration: '3s' }} />
+            <div className="absolute inset-3 rounded-full border-2 border-emerald-500/15 animate-ping" style={{ animationDuration: '3s', animationDelay: '0.5s' }} />
+            <div className="absolute inset-6 rounded-full border-2 border-emerald-500/10 animate-ping" style={{ animationDuration: '3s', animationDelay: '1s' }} />
+            <div className={`relative z-10 w-14 h-14 rounded-full border-2 flex items-center justify-center transition-all duration-300 ${isPlaying ? 'bg-emerald-500/30 border-emerald-400 scale-110' : 'bg-emerald-500/15 border-emerald-500/40'}`}>
+              <Volume2 size={24} className={`transition-colors duration-300 ${isPlaying ? 'text-emerald-300' : 'text-emerald-400'}`} />
+            </div>
+          </div>
+          {/* Sound bars */}
+          <div className="flex items-end gap-1 h-6 mb-1">
+            {[0.3, 0.6, 0.9, 0.5, 1, 0.7, 0.4, 0.8, 0.6, 0.3, 0.7, 0.5].map((delay, i) => (
+              <div
+                key={i}
+                className="sound-bar h-full"
+                style={{
+                  animationDelay: `${delay * 0.3}s`,
+                  opacity: isPlaying ? 0.4 + delay * 0.6 : 0.12 + delay * 0.2,
+                  background: isPlaying ? '#10b981' : '#374151',
+                }}
+              />
+            ))}
+          </div>
+          <div className={`text-[10px] font-bold transition-colors duration-300 ${isPlaying ? 'text-emerald-400' : 'text-gray-600'}`} style={{ fontFamily: 'var(--font-display)' }}>
+            {isPlaying ? '● NARRANDO...' : 'DEMO DE NARRAÇÃO'}
+          </div>
+        </div>
+
+        {/* Botões de amostra */}
+        <div className="flex-1 w-full space-y-2">
+          <div className="text-gray-600 text-[10px] font-bold tracking-widest mb-2" style={{ fontFamily: 'var(--font-display)' }}>
+            OUÇA A NARRAÇÃO REAL (Elite Pro)
+          </div>
+          {voiceSamples.map((s, i) => (
+            <button
+              key={i}
+              onClick={() => toggle(i)}
+              className={`w-full flex items-center gap-3 px-3 py-2.5 rounded-xl border transition-all hover:scale-[1.02] active:scale-[0.98] cursor-pointer ${playing === i ? s.bg + ' scale-[1.02]' : 'bg-white/3 border-white/10'}`}
+            >
+              <div className={`p-1.5 rounded-lg shrink-0 transition-colors ${playing === i ? 'bg-white/10' : 'bg-white/5'}`}>
+                {playing === i
+                  ? <Square size={12} className={s.color} fill="currentColor" />
+                  : <Play size={12} className={playing !== null ? 'text-gray-600' : s.color} fill="currentColor" />
+                }
+              </div>
+              <div className="text-left flex-1 min-w-0">
+                <div className={`font-bold text-[11px] mb-0.5 transition-colors ${playing === i ? s.color : 'text-gray-400'}`} style={{ fontFamily: 'var(--font-display)' }}>
+                  {s.label}
+                </div>
+                <div className="text-gray-600 text-[10px] truncate italic">"{s.phrase}"</div>
+              </div>
+              <span className={`text-[9px] font-bold shrink-0 px-2 py-1 rounded transition-colors ${playing === i ? 'bg-white/10 text-emerald-400 animate-pulse' : 'bg-white/5 text-gray-600'}`} style={{ fontFamily: 'var(--font-display)' }}>
+                {playing === i ? '■ STOP' : '▶ PLAY'}
+              </span>
+            </button>
+          ))}
+        </div>
       </div>
     </div>
   );
@@ -88,87 +130,25 @@ function AudioDemo() {
 
 function DashboardMockup() {
   return (
-    <div className="text-[11px] space-y-2">
-      <div className="flex items-center justify-between mb-3 pb-2 border-b border-white/5">
-        <span className="text-white font-bold text-[12px]" style={{ fontFamily: 'var(--font-display)' }}>DASHBOARD</span>
-        <span className="text-[9px] text-gray-500">ValkyrieStorm</span>
-      </div>
-      <div className="grid grid-cols-3 gap-1.5">
-        {[
-          { l: 'POWER', v: '312K', c: 'text-red-400' },
-          { l: 'LEVEL', v: '58', c: 'text-amber-400' },
-          { l: 'DKP', v: '1.840', c: 'text-sky-400' },
-        ].map(s => (
-          <div key={s.l} className="bg-white/5 border border-white/5 rounded-lg p-2 text-center">
-            <div className={`font-bold text-base ${s.c}`} style={{ fontFamily: 'var(--font-display)' }}>{s.v}</div>
-            <div className="text-gray-500 text-[8px] uppercase tracking-wider">{s.l}</div>
-          </div>
-        ))}
-      </div>
-      <div className="bg-white/3 border border-white/5 rounded-lg p-2.5">
-        <div className="text-[9px] text-gray-500 uppercase tracking-wider mb-1.5">EVOLUÇÃO POWER</div>
-        <div className="flex items-end gap-1 h-8">
-          {[30, 45, 40, 60, 55, 80, 75].map((h, i) => (
-            <div key={i} className="flex-1 bg-red-500/40 rounded-t" style={{ height: `${h}%` }} />
-          ))}
-        </div>
-      </div>
-      <div className="bg-white/3 border border-white/5 rounded-lg p-2">
-        <div className="text-[9px] text-gray-500 uppercase tracking-wider mb-1">META ATIVA</div>
-        <div className="flex items-center justify-between text-[10px]">
-          <span className="text-white">Power 350K</span>
-          <span className="text-emerald-400 font-bold">89%</span>
-        </div>
-        <div className="h-1 bg-white/10 rounded-full mt-1">
-          <div className="h-1 bg-emerald-400 rounded-full" style={{ width: '89%' }} />
-        </div>
-      </div>
-      <div className="flex gap-1.5 pt-1">
-        {['Boss Timer', 'Membros', 'DKP'].map(l => (
-          <div key={l} className="flex-1 text-center py-1.5 rounded bg-white/5 border border-white/5 text-[9px] text-gray-400 font-semibold">{l}</div>
-        ))}
-      </div>
-    </div>
+    <img
+      src="/dashboard.png"
+      alt="Dashboard MY GUILD HUB"
+      className="w-full block"
+      style={{ objectFit: 'cover', objectPosition: 'center 40%', maxHeight: '300px' }}
+      loading="lazy"
+    />
   );
 }
 
 function BossTimerMockup() {
   return (
-    <div className="text-[11px]">
-      <div className="flex items-center justify-between mb-3 pb-2 border-b border-white/5">
-        <span className="text-white font-bold text-[12px]" style={{ fontFamily: 'var(--font-display)' }}>BOSS TIMER</span>
-        <span className="text-[9px] px-2 py-0.5 rounded-full bg-emerald-500/20 border border-emerald-500/30 text-emerald-400 font-bold">● SYNC 3s</span>
-      </div>
-      <div className="mb-2.5">
-        <div className="text-amber-400 font-bold text-[11px] tracking-wider mb-1.5" style={{ fontFamily: 'var(--font-display)' }}>👑 TÚMULO DO REI</div>
-        {[
-          { id: '66', ch1: '29:02', ch2: '29:11', low: false },
-          { id: '67', ch1: '04:15', ch2: '29:02', low: true },
-        ].map(b => (
-          <div key={b.id} className="flex items-center gap-2 py-1 px-2 rounded bg-white/2 border border-white/4 mb-1">
-            <span className="text-gray-500 font-semibold w-6">⊕{b.id}</span>
-            <span className="text-gray-600 text-[9px]">CH1</span>
-            <span className={`timer-value ${b.low ? 'low' : 'normal'}`} style={{ fontSize: '11px', padding: '1px 6px' }}>{b.ch1}</span>
-            <span className="text-gray-600 text-[9px]">CH2</span>
-            <span className="timer-value normal" style={{ fontSize: '11px', padding: '1px 6px' }}>{b.ch2}</span>
-          </div>
-        ))}
-      </div>
-      <div className="mb-2.5">
-        <div className="text-emerald-400 font-bold text-[11px] tracking-wider mb-1.5" style={{ fontFamily: 'var(--font-display)' }}>⊕ MYRKHEIMR</div>
-        <div className="flex items-center gap-2 py-1 px-2 rounded bg-white/2 border border-white/4">
-          <span className="text-gray-500 font-semibold w-6">⊕66</span>
-          <span className="text-gray-600 text-[9px]">CH1</span>
-          <span className="timer-value normal" style={{ fontSize: '11px', padding: '1px 6px' }}>29:03</span>
-          <span className="text-gray-600 text-[9px]">CH2</span>
-          <span className="timer-value afk" style={{ fontSize: '11px', padding: '1px 6px' }}>AFK <span className="text-[8px]">Texas</span></span>
-        </div>
-      </div>
-      <div className="flex justify-between pt-2 border-t border-white/5 text-[9px] text-gray-500">
-        <span>9 bosses · 3 áreas</span>
-        <span className="text-emerald-400">● Sync ativo — 3s</span>
-      </div>
-    </div>
+    <img
+      src="/bosstimer.png"
+      alt="Boss Timer MY GUILD HUB"
+      className="w-full block"
+      style={{ maxHeight: '340px', objectFit: 'cover', objectPosition: 'top' }}
+      loading="lazy"
+    />
   );
 }
 
@@ -502,6 +482,7 @@ const features = [
       'Atalhos rápidos para Boss Timer, Membros, DKP e Leilões',
     ],
     mockup: <DashboardMockup />,
+    fullBleed: true,
   },
   {
     icon: Swords,
@@ -522,6 +503,7 @@ const features = [
       'Dados 100% isolados por guild — alianças compartilham sem cruzar dados',
     ],
     mockup: <BossTimerMockup />,
+    fullBleed: true,
     extra: <AudioDemo />,
   },
   {
@@ -735,7 +717,10 @@ export default function Features() {
                     <div className="mockup-dot" style={{ background: '#28c840' }} />
                     <span className="text-gray-500 text-[10px] ml-2">MY GUILD HUB</span>
                   </div>
-                  <div className="p-3 sm:p-4">{f.mockup}</div>
+                  {'fullBleed' in f && f.fullBleed
+                    ? f.mockup
+                    : <div className="p-3 sm:p-4">{f.mockup}</div>
+                  }
                 </div>
               </div>
             </div>

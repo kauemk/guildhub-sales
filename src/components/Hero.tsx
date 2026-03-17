@@ -82,6 +82,8 @@ export default function Hero() {
               src="/dashboard.png"
               alt="Dashboard do MY GUILD HUB"
               className="w-full block"
+              loading="eager"
+              fetchPriority="high"
             />
           </div>
         </div>
