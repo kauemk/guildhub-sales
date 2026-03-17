@@ -60,7 +60,7 @@ const plans: Plan[] = [
   {
     name: 'Elite Pro',
     subtitle: 'Para guilds de alto nível',
-    price: 'R$ 47,50',
+    price: 'R$ 49,90',
     period: '/mês',
     popular: true,
     cta: 'ASSINAR ELITE PRO',
