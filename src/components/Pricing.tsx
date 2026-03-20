@@ -7,7 +7,7 @@ import { useReveal } from '../hooks/useReveal';
 const cycles = [
   { days: 30  as const, label: '30 dias',  selectorDiscount: null         },
   { days: 90  as const, label: '90 dias',  selectorDiscount: 'até -10,5%' },
-  { days: 180 as const, label: '180 dias', selectorDiscount: 'até -12%'   },
+  { days: 180 as const, label: '180 dias', selectorDiscount: 'até -13%'   },
   { days: 365 as const, label: '365 dias', selectorDiscount: 'até -16%'   },
 ];
 
@@ -21,16 +21,16 @@ const cyclePrices: Record<string, Record<CycleDays, { price: string; discount: s
     365: { price: 'R$ 199,90', discount: '-16%'   },
   },
   premium: {
-    30:  { price: 'R$ 37,00',  discount: null     },
-    90:  { price: 'R$ 104,90', discount: '-5,5%'  },
-    180: { price: 'R$ 199,90', discount: '-10%'   },
-    365: { price: 'R$ 399,90', discount: '-10%'   },
+    30:  { price: 'R$ 37,00',  discount: null      },
+    90:  { price: 'R$ 104,90', discount: '-5,5%'   },
+    180: { price: 'R$ 199,90', discount: '-10%'    },
+    365: { price: 'R$ 379,90', discount: '-14,4%'  },
   },
   elite_pro: {
     30:  { price: 'R$ 67,00',  discount: null      },
     90:  { price: 'R$ 179,90', discount: '-10,5%'  },
-    180: { price: 'R$ 369,90', discount: '-8%'     },
-    365: { price: 'R$ 739,90', discount: '-8%'     },
+    180: { price: 'R$ 349,90', discount: '-13%'    },
+    365: { price: 'R$ 699,90', discount: '-13%'    },
   },
 };
 
