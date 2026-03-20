@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     q: 'Quais são os planos e valores?',
-    a: 'Oferecemos 3 planos mensais: Basic (R$ 19,90/mês) com dashboard completo, DKP, rankings e até 100 membros; Premium (R$ 27,00/mês) com tudo do Basic + leilões de loot, 150 membros e 1 aliança; Elite Pro (R$ 47,50/mês) com tudo do Premium + Boss Timer completo, alertas sonoros com narração, 250 membros e até 3 alianças. Sem contrato e com garantia de 7 dias.',
+    a: 'Oferecemos 3 planos com 4 períodos de contratação (30, 90, 180 ou 365 dias): Basic a partir de R$ 19,90 — dashboard, DKP, rankings, 1 tag e até 50 membros. Premium a partir de R$ 37,00 — tudo do Basic + 3 tags, 1 aliança entre guilds e até 150 membros. Elite Pro a partir de R$ 67,00 — tudo do Premium + Boss Timer completo, leilões de loot, tags ilimitadas, membros ilimitados e acesso a todos os módulos. Planos de 90, 180 e 365 dias têm desconto de até 16%. Sem contrato e com garantia incondicional de 7 dias.',
   },
   {
     q: 'Quais são as formas de pagamento?',
@@ -45,7 +45,7 @@ const faqs = [
   },
   {
     q: 'Minha guild tem 200+ membros. O sistema suporta?',
-    a: 'Sim! O plano Enterprise foi desenvolvido exatamente para guilds de grande porte, sem limite de membros. A arquitetura multi-tenant escala horizontalmente — quanto maior a guild, mais otimizado o sistema. Recomendamos o Enterprise para guilds acima de 100 membros para garantir performance máxima.',
+    a: 'Sim! O plano Elite Pro não tem limite de membros — a arquitetura multi-tenant escala horizontalmente sem restrições. Para guilds acima de 150 membros, o Elite Pro é a escolha ideal.',
   },
   {
     q: 'Posso importar dados de uma planilha ou outro sistema?',
