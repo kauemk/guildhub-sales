@@ -33,7 +33,7 @@ const faqs = [
   },
   {
     q: 'Quais são os planos e valores?',
-    a: 'Oferecemos 3 planos com 4 períodos de contratação (30, 90, 180 ou 365 dias): Basic a partir de R$ 19,90 (365 dias por R$ 199,90) — dashboard, DKP, rankings, 1 tag e até 50 membros. Premium a partir de R$ 37,00 (365 dias por R$ 379,90) — tudo do Basic + 3 tags, 1 aliança entre guilds e até 150 membros. Elite Pro a partir de R$ 67,00 (365 dias por R$ 699,90) — tudo do Premium + Boss Timer completo, leilões de loot, tags ilimitadas, membros ilimitados e acesso a todos os módulos. Planos de 90, 180 e 365 dias têm desconto de até 16%. Sem contrato e com garantia incondicional de 7 dias.',
+    a: 'Oferecemos 3 planos com 4 períodos de contratação (30, 90, 180 ou 365 dias): Basic a partir de R$ 19,90 (365 dias por R$ 199,90) — dashboard, DKP, rankings, 1 tag e até 50 membros. Premium a partir de R$ 37,00 (365 dias por R$ 297,00) — tudo do Basic + 3 tags, 1 aliança entre guilds e até 150 membros. Elite Pro a partir de R$ 67,00 (365 dias por R$ 627,00) — tudo do Premium + Boss Timer completo, leilões de loot, tags ilimitadas, membros ilimitados e acesso a todos os módulos. Planos de 90, 180 e 365 dias têm desconto de até 33%. Sem contrato e com garantia incondicional de 7 dias.',
   },
   {
     q: 'Quais são as formas de pagamento?',
