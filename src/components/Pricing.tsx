@@ -6,7 +6,7 @@ import { useReveal } from '../hooks/useReveal';
 
 const cycles = [
   { days: 30  as const, label: '30 dias',  selectorDiscount: null         },
-  { days: 90  as const, label: '90 dias',  selectorDiscount: 'até -12,6%' },
+  { days: 90  as const, label: '90 dias',  selectorDiscount: 'até -16,9%' },
   { days: 180 as const, label: '180 dias', selectorDiscount: 'até -24,8%' },
   { days: 365 as const, label: '365 dias', selectorDiscount: 'até -33,1%' },
 ];
@@ -28,9 +28,9 @@ const cyclePrices: Record<string, Record<CycleDays, { price: string; discount: s
   },
   elite_pro: {
     30:  { price: 'R$ 67,00',  discount: null      },
-    90:  { price: 'R$ 197,00', discount: '-2%'     },
-    180: { price: 'R$ 337,00', discount: '-16,2%'  },
-    365: { price: 'R$ 627,00', discount: '-22%'    },
+    90:  { price: 'R$ 167,00', discount: '-16,9%'  },
+    180: { price: 'R$ 327,00', discount: '-18,7%'  },
+    365: { price: 'R$ 597,00', discount: '-25,7%'  },
   },
 };
 
