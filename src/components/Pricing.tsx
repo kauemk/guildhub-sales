@@ -230,18 +230,20 @@ export default function Pricing() {
 
                 {/* CTA Button */}
                 {plan.ctaStyle === 'primary' && (
-                  <a href="#" className="cta-btn w-full justify-center">
+                  <a href="https://guildhub-two.vercel.app/guilds" target="_blank" rel="noopener noreferrer" className="cta-btn w-full justify-center">
                     {plan.cta}
                   </a>
                 )}
                 {plan.ctaStyle === 'secondary' && (
-                  <a href="#" className="cta-btn-secondary w-full justify-center">
+                  <a href="https://guildhub-two.vercel.app/guilds" target="_blank" rel="noopener noreferrer" className="cta-btn-secondary w-full justify-center">
                     {plan.cta}
                   </a>
                 )}
                 {plan.ctaStyle === 'elite' && (
                   <a
-                    href="#"
+                    href="https://guildhub-two.vercel.app/guilds"
+                    target="_blank"
+                    rel="noopener noreferrer"
                     className="w-full flex items-center justify-center px-6 py-4 rounded-xl font-bold text-sm tracking-wide text-white transition-all hover:scale-[1.03] hover:shadow-lg hover:shadow-violet-500/20"
                     style={{
                       fontFamily: 'var(--font-display)',
