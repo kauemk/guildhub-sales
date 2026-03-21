@@ -7,7 +7,7 @@ export default function Footer() {
       <section className="relative text-center" style={{ background: 'linear-gradient(180deg, #030712 0%, #041f15 50%, #030712 100%)' }}>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[400px] rounded-full bg-emerald-500/5 blur-[120px] pointer-events-none" />
 
-        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <h2 className="section-title text-3xl sm:text-4xl lg:text-5xl mb-6">
             Pare de Perder Bosses.
             <br />

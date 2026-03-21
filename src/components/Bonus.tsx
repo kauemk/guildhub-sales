@@ -19,7 +19,7 @@ export default function Bonus() {
 
   return (
     <section className="relative">
-      <div ref={ref} className="reveal max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className="reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <div className="inline-flex items-center gap-2 mb-6">
             <Gift size={20} className="text-emerald-400" />

@@ -71,7 +71,7 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="relative">
-      <div ref={ref} className="reveal max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div ref={ref} className="reveal max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
           <span className="inline-block px-3 py-1 rounded-full bg-emerald-500/10 border border-emerald-500/30 text-emerald-400 text-xs font-bold tracking-widest mb-4" style={{ fontFamily: 'var(--font-display)' }}>
             FAQ
